@@ -31,5 +31,4 @@ func main() {
 	fmt.Printf("limei=%#v\n", &limei)
 	fmt.Printf("lili=%#v\n", &lili)
 
-	//指针类型结构体
 }
