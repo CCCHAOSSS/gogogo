@@ -6,7 +6,7 @@ import (
 )
 
 func showMenu() {
-	fmt.Println("欢迎来到学生管理系统")
+	fmt.Println("\n欢迎来到学生管理系统")
 	fmt.Println("请输入序号来使用相关功能")
 	fmt.Println("1: 添加新的学生")
 	fmt.Println("2: 根据学号修改学生信息")
@@ -28,7 +28,7 @@ func inputInfo() *Student {
 	fmt.Println("请输入姓名：")
 	fmt.Scanf("%s", &name)
 	fmt.Println("亲输入性别：")
-	fmt.Scanf("%d", &sex)
+	fmt.Scanf("%s", &sex)
 	fmt.Println("请输入年龄：")
 	fmt.Scanf("%d", &age)
 	stu := newStudent(name, sex, id, age)
@@ -40,8 +40,8 @@ func main() {
 		//1,展示菜单
 		showMenu()
 		//2. 等待用户执行
-		fmt.Println("请输入：")
 		var input int
+		fmt.Println("请输入：")
 		fmt.Scanf("%d", &input)
 		//3.执行
 		switch input {

@@ -25,7 +25,7 @@ type StudentManager struct {
 // 学生管理的构造函数，先初始化内存
 func NewStudentManager() *StudentManager {
 	return &StudentManager{
-		allStudents: make([]*Student, 100),
+		allStudents: make([]*Student, 0, 100),
 	}
 }
 
@@ -36,22 +36,28 @@ func (s *StudentManager) addStudent(newStu *Student) {
 
 // 2.编辑学生
 func (s *StudentManager) updateStudent(stu *Student) {
-	for _, v := range s.allStudents {
+	//for _, v := range s.allStudents {
+	//	if v.Id == stu.Id {
+	//		v.Name = stu.Name
+	//		v.Id = stu.Id
+	//		v.Age = stu.Age
+	//		v.Sex = stu.Sex
+	//	}
+	//	return
+	//}
+	for i, v := range s.allStudents {
 		if v.Id == stu.Id {
-			v.Name = stu.Name
-			v.Id = stu.Id
-			v.Age = stu.Age
-			v.Sex = stu.Sex
+			s.allStudents[i] = stu
+			return
 		}
-		return
 	}
 	//走完了但没找到
-	fmt.Printf("输入有误，未找到学号为%s的学生", stu.Id)
+	fmt.Printf("输入有误，未找到学号为%s的学生\n", stu.Id)
 }
 
 // 3.展示所有学生
 func (s *StudentManager) showAllStudent() {
 	for _, v := range s.allStudents {
-		fmt.Printf("学号：%d\t姓名：%s\t性别：%s年龄：%d", v.Id, v.Name, v.Sex, v.Age)
+		fmt.Printf("学号：%d\t姓名：%s\t性别：%s\t年龄：%d\n", v.Id, v.Name, v.Sex, v.Age)
 	}
 }
