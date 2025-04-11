@@ -3,15 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	s := make([]string, 3)
-	fmt.Println("emp:", s, "len:", len(s), "cap", cap(s))
-
-	var t []string
-	fmt.Println("emp:", t, "len:", len(t), "cap", cap(t))
+	sqrt(9)
 }
 
-func split(sum int) (int, int) {
-	var x = sum * 4 / 9
-	y := sum - x
-	return x, y
+func sqrt(x float64) float64 {
+	z := 1.0
+	for i := 0; i < 10; i++ {
+		z -= (z*z - x) / (2 * z)
+		fmt.Println(z)
+	}
+	return z
 }
